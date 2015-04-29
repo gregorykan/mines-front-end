@@ -7,6 +7,7 @@ $(document).ready(function ()
 		{
 			e.preventDefault();
 			console.log("button clicked");
+			// ajax request not yet filled in, need URI from board server
 			$.ajax(
 				{
 					url: "",
