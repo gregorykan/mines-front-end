@@ -7,6 +7,8 @@
 {
  	height: 200px;
  	width: 200px;
+ 	margin-left: auto;
+ 	margin-right: auto;
 }
 
 .cell
@@ -16,4 +18,10 @@
 	background-color: red;
 	box-shadow: inset #B3B3B3 -1px 0 0 0;
 	display: inline-block;
+}
+
+#new-game
+{
+	margin-top:150px;
+	margin-left:48%; /* umm is there a proper way to centre this? */
 }

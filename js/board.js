@@ -1,5 +1,3 @@
-
-
 function Board () 
 {
 	this.sideLength = 10;
@@ -16,11 +14,3 @@ Board.prototype.Render = function ()
 	}
 
 }
-
-// driver code
-
-$(document).ready(function () 
-	{
-		var board = new Board();
-		board.Render();
-	});
