@@ -17,5 +17,12 @@ $(document).ready(function ()
 				{
 
 				});
-		})
+		});
+
+		$(".cell").click(function (e)
+		{
+			e.preventDefault();
+			var $id = $(e.target).attr("id");
+			console.log($id);
+		});
 	});
