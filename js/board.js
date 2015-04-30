@@ -35,8 +35,9 @@ Board.prototype.CellClick = function ()
 	var $id = $(this).attr("id");
 	console.log($id);
 	var coords = $id.split('')
-	coords = coords[2] + ',' + coords[6]
-	console.log(coords);
+	var row = coords[2]
+	var column = coords[6]
+	console.log(row, column);
 		// ajax request not yet filled in, need URI from board server
 	$.ajax(
 		{
@@ -45,7 +46,7 @@ Board.prototype.CellClick = function ()
 			dataType: "",
 		}).done(function(data)
 		{
-
+			//RenderCell(row, column, value)
 		});
 }
 
