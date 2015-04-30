@@ -112,3 +112,9 @@ img
 {
 	margin-top: 5px;
 }
+
+#timer {
+	width: 100px;
+	height: 100px;
+	background-color: white;
+}

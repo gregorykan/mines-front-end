@@ -26,7 +26,7 @@ Board.prototype.NewGameClick = function ()
 			dataType: "",
 		}).done(function(data)
 		{
-
+			//server creates new board - JS renders new board on screenß
 		});
 }
 
