@@ -33,6 +33,7 @@ Board.prototype.NewGameClick = function ()
 Board.prototype.CellClick = function ()
 {
 	var $id = $(this).attr("id");
+	console.log($id);
 	var coords = $id.split('')
 	coords = coords[2] + ',' + coords[6]
 	console.log(coords);
@@ -65,6 +66,26 @@ Board.prototype.RenderCell = function (row, column, value)
 		$thisDiv.addClass("three");
 	}
 	else if (value === 4)
+	{
+		$thisDiv.addClass("four");
+	}
+	else if (value === 5)
+	{
+		$thisDiv.addClass("five");
+	}
+	else if (value === 6)
+	{
+		$thisDiv.addClass("six");
+	}
+	else if (value === 7)
+	{
+		$thisDiv.addClass("seven");
+	}
+	else if (value === 8)
+	{
+		$thisDiv.addClass("eight");
+	}
+	else if (value === 'lose')
 	{
 		$thisDiv.addClass("bomb");
 	}

@@ -52,6 +52,46 @@
   	background-size: contain;
 }
 
+.four
+{
+	position: absolute;
+	background-image: url('../img/4.png');
+  	background-repeat: no-repeat;
+  	background-size: contain;
+}
+
+.five
+{
+	position: absolute;
+	background-image: url('../img/5.png');
+  	background-repeat: no-repeat;
+  	background-size: contain;
+}
+
+.six
+{
+	position: absolute;
+	background-image: url('../img/6.png');
+  	background-repeat: no-repeat;
+  	background-size: contain;
+}
+
+.seven
+{
+	position: absolute;
+	background-image: url('../img/7.png');
+  	background-repeat: no-repeat;
+  	background-size: contain;
+}
+
+.eight
+{
+	position: absolute;
+	background-image: url('../img/8.png');
+  	background-repeat: no-repeat;
+  	background-size: contain;
+}
+
 .bomb
 {
 	position: absolute;
