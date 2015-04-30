@@ -5,7 +5,9 @@ $(document).ready(function ()
 		var timer = new Timer();
 		$("#new-game").click(board.NewGameClick);
 		$(".cell").click(board.CellClick);
-		$("#timer").click(timer.startTimer);
+		$("#timer").click(function(e) {
+      timer.startTimer();
+    });
     $(document).keypress(function(e) {
       if (e.which == 13) {
         timer.endTimer();

@@ -1,29 +1,27 @@
 function Timer ()
 {
   this.startTime;
+  this.endTime;
+  this.updateTimer;
 }
 
 Timer.prototype.startTimer = function() {
-  // function updateTime() {
-  //   var timeElapsed = Date.now() - this.startTime; // calculate current time elapsed
-  //   console.log(timeElapsed);
-  // }
-  console.log('Start Timer')
   this.startTime = Date.now();
-    console.log(this.startTime)
-    var that = this;
-  var interval = setInterval(function() {
-    var timeElapsed = Math.floor((Date.now() - that.startTime) / 1000);
-    $('#timer').text(timeElapsed);
+  var that = this;
+  var updateTimer = setInterval(function() {
+    if (typeof that.endTime === 'undefined') {
+        var timeElapsed = Math.floor((Date.now() - that.startTime) / 1000);
+        $('#timer').text(timeElapsed);
+    } else {
+      clearInterval(updateTimer);
+    }
   },500);
 }
 
+
 Timer.prototype.endTimer = function() {
-  console.log('End Timer')
+  this.endTime = $('#timer').text();
+  console.log(this);
+  $('#timer').text(this.endTime);
 }
 
-Timer.prototype.updateTime = function() {
-
-  var timeElapsed = Date.now() - this.startTime; // calculate current time elapsed
-  console.log(timeElapsed);
-}

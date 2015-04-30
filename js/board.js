@@ -1,9 +1,9 @@
-function Board () 
+function Board ()
 {
 	this.sideLength = 10;
 }
 
-Board.prototype.RenderInitialBoard = function () 
+Board.prototype.RenderInitialBoard = function ()
 {
 	for (var r = 0; r < this.sideLength; r++)
 	{
@@ -60,7 +60,7 @@ Board.prototype.RenderCell = function (row, column, value)
 	}
 	else if (value === 2)
 	{
-		$thisDiv.addClass("two");		
+		$thisDiv.addClass("two");
 	}
 	else if (value === 3)
 	{
@@ -94,5 +94,18 @@ Board.prototype.RenderCell = function (row, column, value)
 	{
 		$thisDiv.addClass("empty");
 	}
+
+	// TEMP ROUTES FOR CONNECTION
+
+
+	$.ajax(
+		{
+			url: "/test",
+			method: "POST",
+			dataType: "JSON",
+			data: {"test": "IT WORKS"}
+		}).done(function(data)
+			return data
+		{
 
 }
