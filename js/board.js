@@ -15,7 +15,7 @@ Board.prototype.RenderInitialBoard = function ()
 
 }
 
-Board.prototype.NewGame = function ()
+Board.prototype.NewGameClick = function ()
 {
 	console.log("button clicked");
 	// ajax request not yet filled in, need URI from board server
@@ -52,7 +52,7 @@ Board.prototype.RenderCells = function (boardArray)
 	{
 		for (var c = 0; c < this.sideLength; c++)
 		{
-			this.RenderCell(r, c, array[r][c]);
+			this.RenderCell(r, c, boardArray[r][c]);
 		}
 	}
 }
