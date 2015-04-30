@@ -1,7 +1,7 @@
 $(document).ready(function () 
 	{
 		var board = new Board();
-		board.Render();
+		board.RenderInitialBoard();
 		$("#new-game").click(board.NewGame);
 		$(".cell").click(board.CellClick);
 	});
