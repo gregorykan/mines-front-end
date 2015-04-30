@@ -1,19 +1,120 @@
 .html, body
 {
 	height: 100%;
+	background-color: black;
 }
 
 .board
 {
- 	height: 200px;
- 	width: 200px;
+ 	height: 540px;
+ 	width: 540px;
+ 	margin-left: auto;
+ 	margin-right: auto;
+ 	padding: 10px;
 }
 
 .cell
 {
-	height: 20px;
-	width: 20px;
-	background-color: red;
-	box-shadow: inset #B3B3B3 -1px 0 0 0;
+	height: 52px;
+	width: 52px;
+	background-color: #05C5FF;
+	box-shadow: inset #000 -1px 0 0 0;
+	margin-right: 2px;
 	display: inline-block;
+}
+
+.empty
+{
+	background-color: #aaa;
+}
+
+.one
+{
+	background-image: url('../img/1.png');
+  	background-repeat: no-repeat;
+  	background-size: contain;
+}
+
+.two
+{
+	background-image: url('../img/2.png');
+  	background-repeat: no-repeat;
+  	background-size: contain;
+}
+
+.three
+{
+	background-image: url('../img/3.png');
+  	background-repeat: no-repeat;
+  	background-size: contain;
+}
+
+.four
+{
+	background-image: url('../img/4.png');
+  	background-repeat: no-repeat;
+  	background-size: contain;
+}
+
+.five
+{
+	background-image: url('../img/5.png');
+  	background-repeat: no-repeat;
+  	background-size: contain;
+}
+
+.six
+{
+	background-image: url('../img/6.png');
+  	background-repeat: no-repeat;
+  	background-size: contain;
+}
+
+.seven
+{
+	background-image: url('../img/7.png');
+  	background-repeat: no-repeat;
+  	background-size: contain;
+}
+
+.eight
+{
+	background-image: url('../img/8.png');
+  	background-repeat: no-repeat;
+  	background-size: contain;
+}
+
+.bomb
+{
+	background-image: url('../img/bomb.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#new-game
+{
+
+	text-align: center; /* umm is there a proper way to centre this? */
+	padding: 10px;
+	border: #05C5FF 1px solid;
+	width: 510px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.header
+{
+	margin-top:100px;
+	text-align: center;
+}
+
+img 
+{
+	margin-top: 5px;
+}
+
+#timer {
+	width: 100px;
+	height: 100px;
+	background-color: white;
 }
