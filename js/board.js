@@ -33,7 +33,9 @@ Board.prototype.NewGameClick = function ()
 Board.prototype.CellClick = function ()
 {
 	var $id = $(this).attr("id");
-	console.log($id);
+	var coords = $id.split('')
+	coords = coords[2] + ',' + coords[6]
+	console.log(coords);
 		// ajax request not yet filled in, need URI from board server
 	$.ajax(
 		{
@@ -46,16 +48,6 @@ Board.prototype.CellClick = function ()
 		});
 }
 
-Board.prototype.RenderCells = function (boardArray) // this method depends on data given to us by server
-{
-	for (var r = 0; r < this.sideLength; r++)
-	{
-		for (var c = 0; c < this.sideLength; c++)
-		{
-			this.RenderCell(r, c, boardArray[r][c]);
-		}
-	}
-}
 
 Board.prototype.RenderCell = function (row, column, value)
 {
