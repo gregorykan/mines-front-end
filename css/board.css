@@ -23,13 +23,41 @@
 	display: inline-block;
 }
 
-.1
+.empty
+{
+	background-color: #aaa;
+}
+
+.one
 {
 	position: absolute;
 	background-image: url('../img/1.png');
-  	background-size: contain;
   	background-repeat: no-repeat;
-	z-index: 20;
+  	background-size: contain;
+}
+
+.two
+{
+	position: absolute;
+	background-image: url('../img/2.png');
+  	background-repeat: no-repeat;
+  	background-size: contain;
+}
+
+.three
+{
+	position: absolute;
+	background-image: url('../img/3.png');
+  	background-repeat: no-repeat;
+  	background-size: contain;
+}
+
+.bomb
+{
+	position: absolute;
+	background-image: url('../img/bomb.png');
+	background-repeat: no-repeat;
+	background-size: contain;
 }
 
 #new-game

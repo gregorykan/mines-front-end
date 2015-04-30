@@ -46,7 +46,7 @@ Board.prototype.CellClick = function ()
 		});
 }
 
-Board.prototype.RenderCells = function (boardArray)
+Board.prototype.RenderCells = function (boardArray) // this method depends on data given to us by server
 {
 	for (var r = 0; r < this.sideLength; r++)
 	{
@@ -60,5 +60,25 @@ Board.prototype.RenderCells = function (boardArray)
 Board.prototype.RenderCell = function (row, column, value)
 {
 	var $thisDiv = $('#r_' + row + '-c_' + column);
-	$thisDiv.addClass(value);
+	if (value === 1)
+	{
+		$thisDiv.addClass("one");
+	}
+	else if (value === 2)
+	{
+		$thisDiv.addClass("two");		
+	}
+	else if (value === 3)
+	{
+		$thisDiv.addClass("three");
+	}
+	else if (value === 4)
+	{
+		$thisDiv.addClass("bomb");
+	}
+	else
+	{
+		$thisDiv.addClass("empty");
+	}
+
 }
