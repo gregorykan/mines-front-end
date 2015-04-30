@@ -21,11 +21,11 @@ Board.prototype.NewGameClick = function ()
 	// ajax request not yet filled in, need URI from board server
 	$.ajax(
 		{
-			url: "",
-			method: "",
-			dataType: "",
+			url: "/test",
+			method: "GET"
 		}).done(function(data)
 		{
+			console.log(data); // test data
 			//server creates new board - JS renders new board on screenß
 		});
 }
@@ -35,9 +35,11 @@ Board.prototype.CellClick = function ()
 	var $id = $(this).attr("id");
 	console.log($id);
 	var coords = $id.split('')
-	var row = coords[2]
-	var column = coords[6]
-	console.log(row, column);
+	var coords = {
+		"row": coords[2],
+		"column": coords[6]
+	}
+	console.log(coords);
 		// ajax request not yet filled in, need URI from board server
 	$.ajax(
 		{
@@ -46,13 +48,15 @@ Board.prototype.CellClick = function ()
 			dataType: "",
 		}).done(function(data)
 		{
-			//RenderCell(row, column, value)
+			//RenderCell(coords, value)
 		});
 }
 
 
-Board.prototype.RenderCell = function (row, column, value)
+Board.prototype.RenderCell = function (coords, value)
 {
+	var row = coords["row"]
+	var column = coords["column"]
 	var $thisDiv = $('#r_' + row + '-c_' + column);
 	if (value === 1)
 	{
@@ -94,18 +98,22 @@ Board.prototype.RenderCell = function (row, column, value)
 	{
 		$thisDiv.addClass("empty");
 	}
+}
 
 	// TEMP ROUTES FOR CONNECTION
 
 
 	$.ajax(
 		{
-			url: "/test",
+			url: "http://192.168.1.125:9393/test",
 			method: "POST",
 			dataType: "JSON",
 			data: {"test": "IT WORKS"}
-		}).done(function(data)
-			return data
-		{
+		}).done(function(response_data) {
+			console.log(response_data);
+		});
 
-}
+
+
+
+
