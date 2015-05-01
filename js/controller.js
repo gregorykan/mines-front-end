@@ -1,5 +1,9 @@
 $(document).ready(function ()
 	{
+
+    $( "#win" ).hide();
+    $( "#lose" ).hide();
+
 		var board = new Board();
 		board.RenderInitialBoard();
 		var timer = new Timer();
