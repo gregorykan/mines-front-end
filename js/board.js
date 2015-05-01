@@ -26,10 +26,7 @@ Board.prototype.NewGameClick = function ()
 		}).done(function(data, status)
 		{
 			console.log(status);
-			$('.cell').fadeOut(800, function(){
-         $('.cell').fadeIn().delay(2000);
-         $('.cell').attr('class', 'cell');
-      });
+			$('.cell').attr('class', 'cell');
 		});
 }
 
@@ -46,7 +43,7 @@ Board.prototype.CellClick = function (cell)
 	// var mockResponse = Math.floor(Math.random() * 11) -1;
 		var that = this
 		$.ajax({
-				url: "http://192.168.1.36:9393/check",
+				url: "https://cryptic-temple-4030.herokuapp.com/check",
 				method: "POST",
 				data: coords,
 				success: function(data, status) {
