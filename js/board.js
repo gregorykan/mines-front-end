@@ -30,9 +30,10 @@ Board.prototype.NewGameClick = function ()
 		});
 }
 
-Board.prototype.CellClick = function ()
+Board.prototype.CellClick = function (cell)
 {
-	var $id = $(this).attr("id");
+	console.log(this);
+	var $id = $(cell).attr("id");
 	console.log($id);
 	var coords = $id.split('')
 	var coords = {
@@ -41,19 +42,22 @@ Board.prototype.CellClick = function ()
 	}
 	console.log(coords);
 		// ajax request not yet filled in, need URI from board server
-	$.ajax(
-		{
-			url: "",
-			method: "",
-			dataType: "",
-		}).done(function(data)
-		{
-			//RenderCell(coords, value)
+	var mockResponse = Math.floor(Math.random() * 10);
+		$.ajax(
+			{
+				url: "http://192.168.1.125:9393/test",
+				method: "POST",
+				dataType: "JSON",
+				data: coords
+			}).done(function(data)
+			{
+				console.log(data);
+				// this.renderCell(coords, mockResponse);
 		});
 }
 
 
-Board.prototype.RenderCell = function (coords, value)
+Board.prototype.renderCell = function (coords, value)
 {
 	var row = coords["row"]
 	var column = coords["column"]
@@ -90,30 +94,19 @@ Board.prototype.RenderCell = function (coords, value)
 	{
 		$thisDiv.addClass("eight");
 	}
-	else if (value === 'lose')
+	else if (value === -1)
 	{
 		$thisDiv.addClass("bomb");
 	}
-	else
+	else if (value === 0)
 	{
 		$thisDiv.addClass("empty");
 	}
+	else if (value === 9)
+	{
+		$thisDiv.addClass("win")
+	}
 }
-
-	// TEMP ROUTES FOR CONNECTION
-
-
-	$.ajax(
-		{
-			url: "http://192.168.1.125:9393/test",
-			method: "POST",
-			dataType: "JSON",
-			data: {"test": "IT WORKS"}
-		}).done(function(response_data) {
-			console.log(response_data);
-		});
-
-
 
 
 
