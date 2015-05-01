@@ -1,9 +1,9 @@
-function Board () 
+function Board ()
 {
 	this.sideLength = 10;
 }
 
-Board.prototype.RenderInitialBoard = function () 
+Board.prototype.RenderInitialBoard = function ()
 {
 	for (var r = 0; r < this.sideLength; r++)
 	{
@@ -21,38 +21,54 @@ Board.prototype.NewGameClick = function ()
 	// ajax request not yet filled in, need URI from board server
 	$.ajax(
 		{
-			url: "",
-			method: "",
-			dataType: "",
-		}).done(function(data)
+			url: "https://cryptic-temple-4030.herokuapp.com/new_game",
+			method: "GET"
+		}).done(function(data, status)
 		{
-			//server creates new board - JS renders new board on screenß
+			console.log(status);
+			$('.cell').attr('class', 'cell');
 		});
 }
 
-Board.prototype.CellClick = function ()
+Board.prototype.CellClick = function (cell)
 {
-	var $id = $(this).attr("id");
-	console.log($id);
+	var $id = $(cell).attr("id");
 	var coords = $id.split('')
-	var row = coords[2]
-	var column = coords[6]
-	console.log(row, column);
-		// ajax request not yet filled in, need URI from board server
-	$.ajax(
-		{
-			url: "",
-			method: "",
-			dataType: "",
-		}).done(function(data)
-		{
-			//RenderCell(row, column, value)
-		});
+	var coords = { "coords": {
+		"row": coords[2],
+		"column": coords[6]
+	}}
+	console.log(coords);
+	// 	ajax request not yet filled in, need URI from board server
+	// var mockResponse = Math.floor(Math.random() * 11) -1;
+		var that = this
+		$.ajax({
+				url: "https://cryptic-temple-4030.herokuapp.com/check",
+				method: "POST",
+				data: coords,
+				success: function(data, status) {
+					console.log(status);
+					console.log(data);
+					that.renderCell(coords, parseInt(data));
+				}
+
+				// beforeSend: setHeader
+			});
+
+	function setHeader(xhr) {
+  	token = '';
+  	xhr.setRequestHeader('Authorization', token);
+	}
 }
 
 
-Board.prototype.RenderCell = function (row, column, value)
+
+
+Board.prototype.renderCell = function (coords, value)
 {
+	console.log(coords);
+	var row = coords["coords"]["row"]
+	var column = coords["coords"]["column"]
 	var $thisDiv = $('#r_' + row + '-c_' + column);
 	if (value === 1)
 	{
@@ -60,7 +76,7 @@ Board.prototype.RenderCell = function (row, column, value)
 	}
 	else if (value === 2)
 	{
-		$thisDiv.addClass("two");		
+		$thisDiv.addClass("two");
 	}
 	else if (value === 3)
 	{
@@ -86,13 +102,35 @@ Board.prototype.RenderCell = function (row, column, value)
 	{
 		$thisDiv.addClass("eight");
 	}
-	else if (value === 'lose')
+	else if (value === -1)
 	{
 		$thisDiv.addClass("bomb");
+		$('.cell').off('click');
+    $( "#lose" ).dialog();
+		// unbind cellclick so user cant do anything
 	}
-	else
+	else if (value === 0)
 	{
 		$thisDiv.addClass("empty");
 	}
-
+	else if (value === 9)
+	{
+		$thisDiv.addClass("win")
+		$( "#win" ).dialog({
+      resizable: false,
+      height:140,
+      modal: true,
+      buttons: {
+        "Delete all items": function() {
+          $( this ).dialog( "close" );
+        },
+        Cancel: function() {
+          $( this ).dialog( "close" );
+        }
+      }
+    });
+	}
 }
+
+
+

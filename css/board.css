@@ -31,57 +31,57 @@
 .one
 {
 	background-image: url('../img/1.png');
-  	background-repeat: no-repeat;
-  	background-size: contain;
+	background-repeat: no-repeat;
+	background-size: contain;
 }
 
 .two
 {
 	background-image: url('../img/2.png');
-  	background-repeat: no-repeat;
-  	background-size: contain;
+	background-repeat: no-repeat;
+	background-size: contain;
 }
 
 .three
 {
 	background-image: url('../img/3.png');
-  	background-repeat: no-repeat;
-  	background-size: contain;
+	background-repeat: no-repeat;
+	background-size: contain;
 }
 
 .four
 {
 	background-image: url('../img/4.png');
-  	background-repeat: no-repeat;
-  	background-size: contain;
+	background-repeat: no-repeat;
+	background-size: contain;
 }
 
 .five
 {
 	background-image: url('../img/5.png');
-  	background-repeat: no-repeat;
-  	background-size: contain;
+	background-repeat: no-repeat;
+	background-size: contain;
 }
 
 .six
 {
 	background-image: url('../img/6.png');
-  	background-repeat: no-repeat;
-  	background-size: contain;
+	background-repeat: no-repeat;
+	background-size: contain;
 }
 
 .seven
 {
 	background-image: url('../img/7.png');
-  	background-repeat: no-repeat;
-  	background-size: contain;
+	background-repeat: no-repeat;
+	background-size: contain;
 }
 
 .eight
 {
 	background-image: url('../img/8.png');
-  	background-repeat: no-repeat;
-  	background-size: contain;
+	background-repeat: no-repeat;
+	background-size: contain;
 }
 
 .bomb
@@ -108,13 +108,32 @@
 	text-align: center;
 }
 
-img 
+img
 {
 	margin-top: 5px;
 }
 
 #timer {
+  margin: 0 auto;
+  color: #05C5FF;
+  font-size: 30px;
+  text-align: center;
 	width: 100px;
 	height: 100px;
-	background-color: white;
+}
+
+.dialog {
+  border: black 1px solid;
+  color: black;
+  text-align: center;
+  font-size: 1.5em;
+  background-color: #05C5FF;
+  top: 5%;
+}
+
+.vertalign {
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
