@@ -12,7 +12,7 @@ $(document).ready(function ()
       board.CellClick(this);
       });
 
-    $("#timer").click(function(e) {
+    $("#new-game").click(function(e) {
       timer.startTimer();
     });
 
