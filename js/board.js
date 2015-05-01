@@ -25,8 +25,11 @@ Board.prototype.NewGameClick = function ()
 			method: "GET"
 		}).done(function(data, status)
 		{
-			console.log(status); // test data
-			//server creates new board - JS renders new board on screenß
+			console.log(status);
+			$('.cell').fadeOut(800, function(){
+         $('.cell').fadeIn().delay(2000);
+         $('.cell').attr('class', 'cell');
+      });
 		});
 }
 
@@ -41,16 +44,15 @@ Board.prototype.CellClick = function (cell)
 	console.log(coords);
 	// 	ajax request not yet filled in, need URI from board server
 	// var mockResponse = Math.floor(Math.random() * 11) -1;
+		var that = this
 		$.ajax({
-				url: "https://cryptic-temple-4030.herokuapp.com/check",
+				url: "http://192.168.1.36:9393/check",
 				method: "POST",
-				contentType: "application/json",
-				dataType: "JSON",
 				data: coords,
 				success: function(data, status) {
 					console.log(status);
 					console.log(data);
-					this.renderCell(coords, data);
+					that.renderCell(coords, parseInt(data));
 				}
 
 				// beforeSend: setHeader
@@ -67,8 +69,9 @@ Board.prototype.CellClick = function (cell)
 
 Board.prototype.renderCell = function (coords, value)
 {
-	var row = coords["row"]
-	var column = coords["column"]
+	console.log(coords);
+	var row = coords["coords"]["row"]
+	var column = coords["coords"]["column"]
 	var $thisDiv = $('#r_' + row + '-c_' + column);
 	if (value === 1)
 	{
@@ -116,7 +119,19 @@ Board.prototype.renderCell = function (coords, value)
 	else if (value === 9)
 	{
 		$thisDiv.addClass("win")
-		$( "#win" ).dialog();
+		$( "#win" ).dialog({
+      resizable: false,
+      height:140,
+      modal: true,
+      buttons: {
+        "Delete all items": function() {
+          $( this ).dialog( "close" );
+        },
+        Cancel: function() {
+          $( this ).dialog( "close" );
+        }
+      }
+    });
 	}
 }
 

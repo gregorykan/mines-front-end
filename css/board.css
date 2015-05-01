@@ -120,5 +120,10 @@ img
 }
 
 .dialog {
-  background-color: white;
+  border: black 1px solid;
+  color: black;
+  text-align: center;
+  font-size: 1.5em;
+  background-color: #05C5FF;
+  top: 5%;
 }

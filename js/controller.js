@@ -7,7 +7,7 @@ $(document).ready(function ()
 		var board = new Board();
 		board.RenderInitialBoard();
 		var timer = new Timer();
-		$("#new-game").click(board.NewGameClick);
+		$("#new-game").on('click', board.NewGameClick);
 		$(".cell").click(function(e) {
       board.CellClick(this);
       });
